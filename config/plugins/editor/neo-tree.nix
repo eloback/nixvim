@@ -9,6 +9,7 @@
       followCurrentFile = {
         enabled = true;
       };
+      hijackNetrwBehavior = "disabled";
     };
 
     defaultComponentConfigs = {
