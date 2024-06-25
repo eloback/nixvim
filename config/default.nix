@@ -19,6 +19,7 @@ _: {
 
     # Editor plugins and configurations
     ./plugins/editor/neo-tree.nix
+    ./plugins/editor/oil.nix
     ./plugins/editor/treesitter.nix
     ./plugins/editor/undotree.nix
     ./plugins/editor/illuminate.nix
