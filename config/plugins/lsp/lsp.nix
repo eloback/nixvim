@@ -10,24 +10,8 @@
         lua-ls = {enable = true;};
         nil-ls = {enable = true;};
         marksman = {enable = true;};
-        pyright = {enable = true;};
-        gopls = {enable = true;};
-        terraformls = {enable = true;};
         tsserver = {enable = true;};
-        ansiblels = {enable = true;};
         jsonls = {enable = true;};
-        helm-ls = {
-          enable = true;
-          extraOptions = {
-            settings = {
-              "helm-ls" = {
-                yamlls = {
-                  path = "${pkgs.yaml-language-server}/bin/yaml-language-server";
-                };
-              };
-            };
-          };
-        };
         yamlls = {
           enable = true;
           extraOptions = {
