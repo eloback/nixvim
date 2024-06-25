@@ -12,6 +12,12 @@
         marksman = {enable = true;};
         tsserver = {enable = true;};
         jsonls = {enable = true;};
+        rust-analyzer = {
+          enable = true;
+          installCargo = true;
+          installRustc = true;
+        };
+
         yamlls = {
           enable = true;
           extraOptions = {
