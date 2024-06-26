@@ -10,6 +10,7 @@
         };
       };
       surround = {};
+      comment = {};
     };
   };
 }
