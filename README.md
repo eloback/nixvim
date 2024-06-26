@@ -50,6 +50,10 @@ This repository contains the configuration for NixVim, a Neovim configuration ma
 - `lazygit.nix`: Configures the LazyGit plugin for Git integration.
 - `gitsigns.nix`: Configures the GitSigns plugin for displaying Git diff information.
 
+## SQL
+
+- `dadbod.nix`: Configures the DadBod plugin for database access.
+
 ## Utils
 
 - `telescope.nix`: Configures the Telescope plugin for fuzzy finding and picking.
