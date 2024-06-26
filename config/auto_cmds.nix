@@ -19,28 +19,6 @@
       };
     }
     {
-      event = ["FocusGained"];
-      pattern = "*";
-      callback = {
-        __raw = ''
-          function()
-            vim.fn.setreg('@', vim.fn.getreg('+'))
-          end
-        '';
-      };
-    }
-    {
-      event = ["FocusLost"];
-      pattern = "*";
-      callback = {
-        __raw = ''
-          function()
-            vim.fn.setreg('+', vim.fn.getreg("@"))
-          end
-        '';
-      };
-    }
-    {
       group = "vim_enter";
       event = ["VimEnter"];
       pattern = "*";
