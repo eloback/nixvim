@@ -17,6 +17,12 @@
           installCargo = true;
           installRustc = true;
         };
+        taplo = {
+          enable = true;
+          settings = {
+            # TODO: add crates.nvim key.
+          };
+        };
 
         yamlls = {
           enable = true;
