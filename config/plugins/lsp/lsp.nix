@@ -19,9 +19,17 @@
         };
         taplo = {
           enable = true;
-          settings = {
-            # TODO: add crates.nvim key.
-          };
+          onAttach.function = ''
+                        vim.keymap.set("n", "K",
+            function()
+                          if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+                            require("crates").show_popup()
+                          else
+                            vim.lsp.buf.hover()
+                          end
+                        end
+                        , { desc = "Show Crate Documentation", buffer = bufnr })
+          '';
         };
 
         yamlls = {
@@ -100,6 +108,18 @@
       };
     };
   };
+
+  keymaps = [
+    {
+      mode = ["n"];
+      key = "<leader>ca";
+      action.__raw = "vim.lsp.buf.code_action";
+      options = {
+        desc = "Code Action";
+      };
+    }
+  ];
+
   extraPlugins = with pkgs.vimPlugins; [
     ansible-vim
   ];

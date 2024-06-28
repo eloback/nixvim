@@ -18,6 +18,7 @@
           {name = "nvim_lsp";}
           {name = "emoji";}
           {name = "vim-dadbod-completion";}
+          {name = "crates";}
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
