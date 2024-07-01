@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       name = "vim-dadbod";
@@ -24,7 +28,7 @@
         owner = "kristijanhusak";
         repo = "vim-dadbod-completion";
         rev = "8c9051c1cfc73fcf5bfe9a84db7097e4f7c0180d";
-        hash = "sha256-ebXrC7jN7ahmDGVwtK9SJp8AEvfAZeCSeGWAq+7H8pc=";
+        hash = "sha256-C02MwQECUl61Tn0SKMV0xXW12V/W7/sCpE8lg5OW7Ww=";
       };
     })
   ];

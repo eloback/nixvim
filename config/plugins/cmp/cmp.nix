@@ -1,5 +1,25 @@
 {
-  plugins = {
+  plugins = let
+    default_sources = [
+      {name = "git";}
+      {name = "nvim_lsp";}
+      {name = "emoji";}
+      {
+        name = "buffer"; # text within current buffer
+        option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+        keywordLength = 3;
+      }
+      {name = "copilot";}
+      {
+        name = "path"; # file system paths
+        keywordLength = 3;
+      }
+      {
+        name = "luasnip"; # snippets
+        keywordLength = 3;
+      }
+    ];
+  in {
     cmp-emoji = {enable = true;};
     cmp = {
       enable = true;
@@ -13,27 +33,7 @@
         };
         snippet = {expand = "luasnip";};
         formatting = {fields = ["kind" "abbr" "menu"];};
-        sources = [
-          {name = "git";}
-          {name = "nvim_lsp";}
-          {name = "emoji";}
-          {name = "vim-dadbod-completion";}
-          {name = "crates";}
-          {
-            name = "buffer"; # text within current buffer
-            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-            keywordLength = 3;
-          }
-          {name = "copilot";}
-          {
-            name = "path"; # file system paths
-            keywordLength = 3;
-          }
-          {
-            name = "luasnip"; # snippets
-            keywordLength = 3;
-          }
-        ];
+        sources = default_sources;
 
         window = {
           completion = {border = "solid";};
@@ -53,6 +53,22 @@
             })
           '';
         };
+      };
+      filetype = let
+        sql_sources =
+          [
+            {name = "vim-dadbod-completion";}
+          ]
+          ++ default_sources;
+      in {
+        sql = {sources = sql_sources;};
+        mysql = {sources = sql_sources;};
+        plsql = {sources = sql_sources;};
+        toml.sources =
+          [
+            {name = "crates";}
+          ]
+          ++ default_sources;
       };
     };
     cmp-nvim-lsp = {enable = true;}; # lsp
