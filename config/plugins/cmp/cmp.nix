@@ -41,14 +41,17 @@
         };
 
         mapping = {
-          "Down" = "cmp.mapping.select_next_item()";
-          "Up" = "cmp.mapping.select_prev_item()";
-          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<C-CR>" = "cmp.mapping.abort()";
-          "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+          __raw = ''
+            cmp.mapping.preset.insert({
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-CR>'] = cmp.mapping.abort(),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                [ 'Down' ] = cmp.mapping.select_next_item(),
+                [ 'Up' ] = cmp.mapping.select_prev_item(),
+            })
+          '';
         };
       };
     };
