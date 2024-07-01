@@ -126,6 +126,7 @@
           "shfmt"
         ];
         json = ["jq"];
+        rust = ["rustfmt"];
         "_" = ["trim_whitespace"];
       };
 
