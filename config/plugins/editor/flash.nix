@@ -5,7 +5,7 @@
   keymaps = [
     {
       mode = ["n" "x" "o"];
-      key = "f";
+      key = "s";
       action.__raw = ''
         function()
           require('flash').jump()
@@ -15,7 +15,7 @@
     }
     {
       mode = ["n" "x" "o"];
-      key = "F";
+      key = "S";
       action.__raw = "function() require('flash').treesitter() end";
       options = {desc = "Flash Treesitter";};
     }
