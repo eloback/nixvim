@@ -50,7 +50,7 @@
     #./plug/utils/harpoon.nix
     ./plug/utils/comment.nix
     ./plug/utils/copilot.nix
-    #./plug/utils/flash.nix
+    ./plug/utils/flash.nix
     ./plug/utils/grapple.nix
     ./plug/utils/hardtime.nix
     ./plug/utils/illuminate.nix
@@ -63,6 +63,8 @@
     ./plug/utils/undotree.nix
     ./plug/utils/whichkey.nix
     ./plug/utils/yaml-companion.nix
+    ./plug/utils/dadbod.nix # database management
+    ./plug/utils/rust.nix # rust tools
   ];
   options = {
     theme = lib.mkOption {
@@ -76,9 +78,10 @@
   };
   config = {
     # The base16 theme to use, if you want to use another theme, change it in colorscheme.nix
-    theme = "paradise";
+    theme = "gruvbox";
     extraConfigLua = ''
       _G.theme = "${config.theme}"
     '';
+    plugins.hardtime.enable = true;
   };
 }

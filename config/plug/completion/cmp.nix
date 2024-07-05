@@ -1,19 +1,9 @@
 {
   plugins = {
     cmp-emoji = { enable = true; };
-    cmp = {
-      enable = true;
-      settings = {
-        autoEnableSources = true;
-        experimental = { ghost_text = true; };
-        performance = {
-          debounce = 60;
-          fetchingTimeout = 200;
-          maxViewEntries = 30;
-        };
-        snippet = { expand = "luasnip"; };
-        formatting = { fields = [ "kind" "abbr" "menu" ]; };
-        sources = [
+    cmp =
+      let
+        default_sources = [
           { name = "nvim_lsp"; }
           { name = "emoji"; }
           {
@@ -31,25 +21,57 @@
             keywordLength = 3;
           }
         ];
+      in
+      {
+        enable = true;
+        settings = {
+          autoEnableSources = true;
+          experimental = { ghost_text = true; };
+          performance = {
+            debounce = 60;
+            fetchingTimeout = 200;
+            maxViewEntries = 30;
+          };
+          snippet = { expand = "luasnip"; };
+          formatting = { fields = [ "kind" "abbr" "menu" ]; };
+          sources = default_sources;
 
-        window = {
-          completion = { border = "solid"; };
-          documentation = { border = "solid"; };
-        };
+          window = {
+            completion = { border = "solid"; };
+            documentation = { border = "solid"; };
+          };
 
-        mapping = {
-          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-          "<C-j>" = "cmp.mapping.select_next_item()";
-          "<C-k>" = "cmp.mapping.select_prev_item()";
-          "<C-e>" = "cmp.mapping.abort()";
-          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+          mapping = {
+            # "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            "Down" = "cmp.mapping.select_next_item()";
+            "Up" = "cmp.mapping.select_prev_item()";
+            "<C-CR>" = "cmp.mapping.abort()";
+            "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+            "<C-f>" = "cmp.mapping.scroll_docs(4)";
+            "<C-Space>" = "cmp.mapping.complete()";
+            "<CR>" = "cmp.mapping.confirm({ select = true })";
+            "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+          };
         };
+        filetype =
+          let
+            sql_sources =
+              [
+                { name = "vim-dadbod-completion"; }
+              ]
+              ++ default_sources;
+          in
+          {
+            sql = { sources = sql_sources; };
+            mysql = { sources = sql_sources; };
+            plsql = { sources = sql_sources; };
+            toml.sources =
+              [
+                { name = "crates"; }
+              ]
+              ++ default_sources;
+          };
       };
-    };
     cmp-nvim-lsp = { enable = true; }; # lsp
     cmp-buffer = { enable = true; };
     cmp-path = { enable = true; }; # file system paths
