@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   plugins.conform-nvim = {
     enable = true;
     formatOnSave = {
@@ -7,18 +7,15 @@
     };
     notifyOnError = true;
     formattersByFt = {
-      liquidsoap = [ "liquidsoap-prettier" ];
-      html = [ [ "prettierd" "prettier" ] ];
-      css = [ [ "prettierd" "prettier" ] ];
-      javascript = [ [ "prettierd" "prettier" ] ];
-      javascriptreact = [ [ "prettierd" "prettier" ] ];
-      typescript = [ [ "prettierd" "prettier" ] ];
-      typescriptreact = [ [ "prettierd" "prettier" ] ];
-      python = [ "black" ];
+      html = [ [ "prettierd" ] ];
+      css = [ [ "prettierd" ] ];
+      javascript = [ [ "prettierd" ] ];
+      typescript = [ [ "prettierd" ] ];
       lua = [ "stylua" ];
       nix = [ "nixpkgs-fmt" ];
-      markdown = [ [ "prettierd" "prettier" ] ];
+      markdown = [ [ "prettierd" ] ];
       yaml = [ "yamllint" "yamlfmt" ];
     };
   };
+  extraPackages = with pkgs; [ prettierd stylua nixpkgs-fmt yamllint yamlfmt ];
 }
