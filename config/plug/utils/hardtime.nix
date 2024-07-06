@@ -3,11 +3,10 @@
     enable = lib.mkDefault false;
     enabled = true;
     disableMouse = true;
-    disabledFiletypes = [ "Oil" ];
     hint = true;
     maxCount = 4;
     maxTime = 1000;
-    restrictionMode = "hint";
+    restrictionMode = "block";
     restrictedKeys = {
       "h" = [ "n" "x" ];
       "j" = [ "n" "x" ];
@@ -21,6 +20,10 @@
       "<C-M>" = [ "n" "x" ];
       "<C-N>" = [ "n" "x" ];
       "<C-P>" = [ "n" "x" ];
+    };
+    disabledKeys = {
+      "<Up>" = [ "s" ];
+      "<Down>" = [ "s" ];
     };
   };
 }
