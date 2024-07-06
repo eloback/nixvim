@@ -4,6 +4,7 @@
 }: {
   imports = [
     ./autocommands.nix
+
     ./keys.nix
     ./sets.nix
     ./highlight.nix
@@ -69,7 +70,7 @@
   options = {
     theme = lib.mkOption {
       default = lib.mkDefault "paradise";
-      type = lib.types.enum [ "paradise" "decay" "edge-dark" "mountain" "tokyonight" "everforest" "everblush" "jellybeans" "aquarium" "gruvbox" ];
+      type = lib.types.enum [ "paradise" "catppuccin" "decay" "edge-dark" "mountain" "tokyonight" "everforest" "everblush" "jellybeans" "aquarium" "gruvbox" ];
     };
     assistant = lib.mkOption {
       default = "none";
@@ -78,8 +79,8 @@
   };
   config = {
     # The base16 theme to use, if you want to use another theme, change it in colorscheme.nix
-    theme = "gruvbox";
-    extraConfigLua = ''
+    theme = "catppuccin";
+    extraConfigLua = '' 
       _G.theme = "${config.theme}"
     '';
     plugins.hardtime.enable = true;
