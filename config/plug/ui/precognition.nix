@@ -14,4 +14,13 @@
   extraConfigLua = ''
     require('precognition').setup({ })
   '';
+  keymaps = [
+
+    {
+      mode = "n";
+      key = "<leader>up";
+      action = ''<cmd>lua require("precognition").toggle()<CR>'';
+      options = { desc = "Toggle Precognition"; };
+    }
+  ];
 }
