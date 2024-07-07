@@ -30,5 +30,16 @@
       require("conform").format({ async = true, lsp_format = "fallback", range = range })
     end, { range = true })
   '';
+  keymaps = [
+    {
+      mode = [ "n" "v" ];
+      key = "<leader>cf";
+      action = "<cmd>Format<cr>";
+      options = {
+        silent = true;
+        desc = "Format";
+      };
+    }
+  ];
   extraPackages = with pkgs; [ prettierd stylua nixpkgs-fmt yamllint yamlfmt ];
 }
