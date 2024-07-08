@@ -83,6 +83,5 @@
     extraConfigLua = '' 
       _G.theme = "${config.theme}"
     '';
-    plugins.hardtime.enable = true;
   };
 }
