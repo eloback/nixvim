@@ -67,6 +67,7 @@
     ./plug/utils/yaml-companion.nix
     ./plug/utils/dadbod.nix # database management
     ./plug/utils/rust.nix # rust tools
+    ./plug/utils/spectre.nix
   ];
   options = {
     theme = lib.mkOption {
