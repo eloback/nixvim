@@ -23,6 +23,7 @@
     ./plug/git/worktree.nix
 
     ./plug/lsp/conform.nix
+    ./plug/lsp/lint.nix
     ./plug/lsp/fidget.nix
     ./plug/lsp/hlchunk.nix
     ./plug/lsp/lsp.nix
