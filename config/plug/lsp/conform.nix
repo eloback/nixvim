@@ -7,13 +7,11 @@
     };
     notifyOnError = true;
     formattersByFt = {
-      html = [ [ "prettierd" ] ];
-      css = [ [ "prettierd" ] ];
-      javascript = [ [ "prettierd" ] ];
-      typescript = [ [ "prettierd" ] ];
+      javascript = [ [ "biome" "biome-check" ] ];
+      typescript = [ [ "biome" "biome-check" ] ];
       lua = [ "stylua" ];
       nix = [ "nixpkgs_fmt" ];
-      markdown = [ [ "prettierd" ] ];
+      markdown = [ [ "biome" ] ];
       yaml = [ "yamllint" "yamlfmt" ];
     };
   };

@@ -7,8 +7,8 @@
       markdown = [ "vale" ];
       dockerfile = [ "hadolint" ];
       nix = [ "nix" ];
-      javascript = [ "eslint_d" ];
-      typescript = [ "eslint_d" ];
+      javascript = [ "biomejs" ];
+      typescript = [ "biomejs" ];
       lua = [ "luacheck" ];
       fish = [ "fish" ];
       yaml = [ "yamllint" ];
