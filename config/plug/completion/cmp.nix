@@ -141,5 +141,22 @@
     --       return vim_item
     --      end
     -- }
-       })  '';
+       })  
+  '';
+  keymaps = [
+    # disable cmp for buffer
+    {
+      mode = "n";
+      key = "<leader>cbd";
+      action = ":lua require('cmp').setup.buffer { enabled = false }<CR>";
+    }
+    # enable cmp for buffer
+    {
+      mode = "n";
+      key = "<leader>cbe";
+      action = ":lua require('cmp').setup.buffer { enabled = true }<CR>";
+    }
+  ];
 }
+
+
