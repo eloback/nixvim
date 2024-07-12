@@ -4,7 +4,7 @@
     keymap.key = "<leader>M";
   };
   plugins.qmk = {
-    enable = true;
+    enable = false;
     settings = {
       name = "adv360-nvim";
       layout = [
