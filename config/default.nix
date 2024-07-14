@@ -69,6 +69,7 @@
     ./plug/utils/rust.nix # rust tools
     ./plug/utils/spectre.nix
     ./plug/utils/tmux.nix
+    ./plug/utils/zen.nix
     ./plug/utils/many/default.nix
   ];
   options = {
