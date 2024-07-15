@@ -86,6 +86,12 @@
           desc = "Commits";
         };
       };
+      "<leader>gC" = {
+        action = "git_bcommits";
+        options = {
+          desc = "Buffer Commits";
+        };
+      };
       "<leader>gs" = {
         action = "git_status";
         options = {
