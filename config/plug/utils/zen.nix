@@ -22,7 +22,7 @@
         twilight = {
           enabled = true;
           settings = {
-            context = 18;
+            context = 10;
           };
         };
         gitsigns = {
@@ -33,7 +33,7 @@
         };
         kitty = {
           enabled = true;
-          font = "+8";
+          font = "+4";
         };
       };
     };
