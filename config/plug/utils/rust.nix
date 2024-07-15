@@ -10,4 +10,5 @@
       };
     };
   };
+  plugins.bacon.enable = true;
 }
