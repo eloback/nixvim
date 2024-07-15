@@ -4,7 +4,7 @@
     settings = {
       window = {
         backdrop = 0.95;
-        width = 120;
+        width = .65;
         height = 1;
         options = {
           signcolumn = "no";
@@ -12,24 +12,6 @@
           relativenumber = false;
         };
       };
-      on_close = ''
-        function()
-          require("gitsigns.actions").toggle_current_line_blame()
-          vim.cmd('IBLEnable')
-          vim.opt.relativenumber = true
-          vim.opt.signcolumn = "yes:2"
-          require("gitsigns.actions").refresh()
-        end
-      '';
-      on_open = ''
-        function()
-          require("gitsigns.actions").toggle_current_line_blame()
-          vim.cmd('IBLDisable')
-          vim.opt.relativenumber = false
-          vim.opt.signcolumn = "no"
-          require("gitsigns.actions").refresh()
-        end
-      '';
       plugins = {
         options = {
           enabled = true;
@@ -51,7 +33,7 @@
         };
         kitty = {
           enabled = true;
-          font = "+4";
+          font = "+8";
         };
       };
     };
