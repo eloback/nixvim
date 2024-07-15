@@ -37,7 +37,12 @@
           showcmd = false;
           laststatus = 0;
         };
-        twilight = { enabled = true; };
+        twilight = {
+          enabled = true;
+          settings = {
+            context = 18;
+          };
+        };
         gitsigns = {
           enabled = false;
         };
