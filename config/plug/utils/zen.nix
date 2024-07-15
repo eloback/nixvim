@@ -61,5 +61,13 @@
         desc = "Enter zenmode";
       };
     }
+    {
+      action = "<cmd>Twilight<CR>";
+      mode = "n";
+      key = "<leader>uT";
+      options = {
+        desc = "Enter Twilight";
+      };
+    }
   ];
 }
