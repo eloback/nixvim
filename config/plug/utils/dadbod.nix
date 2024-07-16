@@ -38,6 +38,17 @@
     vim.g.db_ui_use_nerd_fonts = 1
     vim.g.db_ui_show_help = 0
   '';
+  autoCmd = [
+    # Insert keybind to disable nvim-cmp in the sql buffer
+    {
+      event = "FileType";
+      pattern = [
+        "sql"
+        "pgsql"
+      ];
+      callback.__raw = "function() vim.keymap.set('n', '<leader>cmpdd','<cmd>lua remove_source(\"vim-dadbod-completion\")<cr>', { buffer = true, desc = \"Disable dadbod-completion\" });end";
+    }
+  ];
   keymaps = [
     {
       mode = [ "n" ];
