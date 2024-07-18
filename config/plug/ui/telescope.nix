@@ -77,12 +77,12 @@
           desc = "Buffers";
         };
       };
-      "<C-p>" = {
-        action = "git_files";
-        options = {
-          desc = "Search git files";
-        };
-      };
+      # "<C-p>" = {
+      #   action = "git_files";
+      #   options = {
+      #     desc = "Search git files";
+      #   };
+      # };
       "<leader>gc" = {
         action = "git_commits";
         options = {

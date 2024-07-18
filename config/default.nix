@@ -56,6 +56,7 @@
     ./plug/utils/copilot.nix
     ./plug/utils/flash.nix
     ./plug/utils/grapple.nix
+    ./plug/utils/portal.nix
     ./plug/utils/hardtime.nix
     ./plug/utils/illuminate.nix
     ./plug/utils/markview.nix

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, helpers, ... }:
 let
   colors = import ../../colors/${config.theme}.nix { };
 in
@@ -62,6 +62,7 @@ in
           };
         }
         "diff"
+        "require'grapple'.statusline()"
       ];
       lualine_c = [
         {
