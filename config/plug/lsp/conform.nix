@@ -11,7 +11,7 @@
       typescript = [ [ "biome" "biome-check" ] ];
       lua = [ "stylua" ];
       nix = [ "nixpkgs_fmt" ];
-      markdown = [ [ "biome" ] ];
+      # markdown = [ [ "biome" ] ];
       yaml = [ "yamllint" "yamlfmt" ];
     };
   };
