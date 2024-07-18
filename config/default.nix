@@ -13,6 +13,7 @@
     ./plug/colorscheme/colorscheme.nix
 
     ./plug/completion/cmp.nix
+    ./plug/completion/lspkind.nix
     ./plug/completion/copilot-cmp.nix
     ./plug/completion/schemastore.nix
 
