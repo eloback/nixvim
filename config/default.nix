@@ -29,6 +29,7 @@
     ./plug/lsp/lsp.nix
     ./plug/lsp/lspsaga.nix
     # ./plug/lsp/none-ls.nix
+    ./plug/lsp/otter.nix
     ./plug/lsp/trouble.nix
 
     ./plug/snippets/luasnip.nix
