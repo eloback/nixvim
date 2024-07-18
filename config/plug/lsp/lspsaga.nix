@@ -83,15 +83,15 @@
       };
     }
 
-    # {
-    #   mode = "n";
-    #   key = "gD";
-    #   action = "<cmd>Lspsaga show_line_diagnostics<CR>";
-    #   options = {
-    #     desc = "Goto Declaration";
-    #     silent = true;
-    #   };
-    # }
+    {
+      mode = [ "n" "t" ];
+      key = "<A-t>";
+      action = "<cmd>Lspsaga term_toggle<CR>";
+      options = {
+        desc = "toggle float terminal";
+        silent = true;
+      };
+    }
 
     {
       mode = "n";
