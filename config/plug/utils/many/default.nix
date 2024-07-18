@@ -13,6 +13,11 @@
       };
     }
   ];
+  # UI: view marks in buffer
+  plugins.marks = {
+    enable = true;
+    defaultMappings = false;
+  };
   plugins.qmk = {
     enable = false;
     settings = {
