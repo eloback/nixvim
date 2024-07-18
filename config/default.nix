@@ -64,7 +64,7 @@
     ./plug/utils/obsidian.nix
     ./plug/utils/oil.nix
     ./plug/utils/ufo.nix
-    ./plug/utils/undotree.nix
+    # ./plug/utils/undotree.nix
     ./plug/utils/whichkey.nix
     ./plug/utils/yaml-companion.nix
     ./plug/utils/dadbod.nix # database management

@@ -6,7 +6,12 @@
   keymaps = [
     {
       mode = "n";
-      key = "<leader>math";
+      key = "<leader>e";
+      action = "+misc";
+    }
+    {
+      mode = "n";
+      key = "<leader>em";
       action = "<cmd>n playground.playground | Quickmath<cr>";
       options = {
         desc = "playground";

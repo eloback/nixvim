@@ -8,6 +8,9 @@
       fzf-native = {
         enable = true;
       };
+      undo = {
+        enable = true;
+      };
     };
     settings = {
       defaults = {
@@ -176,6 +179,13 @@
           desc = "Colorscheme preview";
         };
       };
+      "<leader>su" = {
+        action = "undo";
+        options = {
+          desc = "Undo tree";
+        };
+      };
+
     };
   };
   keymaps = [
