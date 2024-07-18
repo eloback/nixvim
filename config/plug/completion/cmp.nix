@@ -4,22 +4,22 @@
     cmp =
       let
         default_sources = [
+          { name = "calc"; keywordLength = 3; }
           { name = "nvim_lsp"; }
-          { name = "emoji"; }
+          {
+            name = "luasnip"; # snippets
+            keywordLength = 3;
+          }
+          {
+            name = "path"; # file system paths
+            keywordLength = 3;
+          }
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             keywordLength = 3;
           }
           { name = "copilot"; }
-          {
-            name = "path"; # file system paths
-            keywordLength = 3;
-          }
-          {
-            name = "luasnip"; # snippets
-            keywordLength = 3;
-          }
         ];
       in
       {
@@ -32,8 +32,8 @@
             fetchingTimeout = 200;
             maxViewEntries = 30;
           };
-          snippet = { expand = "luasnip"; };
           formatting = { fields = [ "kind" "abbr" "menu" ]; };
+          snippet = { expand = "function(args) require('luasnip').lsp_expand(args.body) end"; };
           sources = default_sources;
 
           window = {
@@ -58,90 +58,109 @@
         filetype =
           let
             sql_sources =
+              default_sources
+              ++
               [
                 { name = "vim-dadbod-completion"; }
-              ]
-              ++ default_sources;
+              ];
           in
           {
             sql = { sources = sql_sources; };
             mysql = { sources = sql_sources; };
             plsql = { sources = sql_sources; };
-            toml.sources =
-              [
-                { name = "crates"; }
-              ]
-              ++ default_sources;
           };
+        cmdline = {
+          "/" = {
+            mapping = {
+              __raw = "cmp.mapping.preset.cmdline()";
+            };
+            sources = [
+              {
+                name = "buffer";
+              }
+            ];
+          };
+          ":" = {
+            mapping = {
+              __raw = "cmp.mapping.preset.cmdline()";
+            };
+            sources = [
+              {
+                name = "cmdline";
+              }
+            ];
+          };
+        };
       };
-    cmp-nvim-lsp = { enable = true; }; # lsp
-    cmp-buffer = { enable = true; };
-    cmp-path = { enable = true; }; # file system paths
-    cmp_luasnip = { enable = true; }; # snippets
-    cmp-cmdline = { enable = false; }; # autocomplete for cmdline
   };
-  extraConfigLua = ''
-        luasnip = require("luasnip")
-        kind_icons = {
-          Text = "󰊄",
-          Method = "",
-          Function = "󰡱",
-          Constructor = "",
-          Field = "",
-          Variable = "󱀍",
-          Class = "",
-          Interface = "",
-          Module = "󰕳",
-          Property = "",
-          Unit = "",
-          Value = "",
-          Enum = "",
-          Keyword = "",
-          Snippet = "",
-          Color = "",
-          File = "",
-          Reference = "",
-          Folder = "",
-          EnumMember = "",
-          Constant = "",
-          Struct = "",
-          Event = "",
-          Operator = "",
-          TypeParameter = "",
-        } 
+  extraConfigLua = /* lua */''
+    luasnip = require("luasnip")
+    local cmp = require'cmp'
+    debug_icon = false
+    cmp.setup {
+      formatting = {
+        format = function(entry, vim_item)
+          local kind_icons = {
+            Version = "",
+            Feature = "",
+            Copilot = "",
+            Text = "",
+            Method = "󰆧",
+            Function = "󰊕",
+            Constructor = "",
+            Field = "󰇽",
+            Variable = "󰂡",
+            Class = "󰠱",
+            Interface = "",
+            Module = "",
+            Property = "󰜢",
+            Unit = "",
+            Value = "󰎠",
+            Enum = "",
+            Keyword = "󰌋",
+            Snippet = "",
+            Color = "󰏘",
+            File = "󰈙",
+            Reference = "",
+            Folder = "󰉋",
+            EnumMember = "",
+            Constant = "󰏿",
+            Struct = "",
+            Event = "",
+            Operator = "󰆕",
+            TypeParameter = "󰅲",
+          }
+          local custom_menu_icon = {
+            calc = " 󰃬 ",
+            cmdline = " 󰏓 ",
+            --NOTE: requires a nerdfont to be rendered
+            --you could include other sources here as well
+          }
 
-         local cmp = require'cmp'
+          local icon = "?"
 
-     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-     cmp.setup.cmdline({'/', "?" }, {
-       sources = {
-         { name = 'buffer' }
-       }
-     })
+          if kind_icons[vim_item.kind] ~= nil then
+            icon = kind_icons[vim_item.kind]
+          end
+          if entry.source.name == "calc" then
+            -- Get the custom icon for 'calc' source
+            -- Replace the kind glyph with the custom icon
+            icon = custom_menu_icon.calc
+          elseif entry.source.name == "cmdline" then
+            -- Get the custom icon for 'cmdline' source
+            -- Replace the kind glyph with the custom icon
+            icon = custom_menu_icon.cmdline
+          end
+          if debug_icon then
+            icon = string.format('[%s][%s]', entry.source.name, vim_item.kind)
+          end
+          vim_item.kind = string.format(' %s ', icon)
+          return vim_item
+        end
+      },
+    }
 
-    -- Set configuration for specific filetype.
-     cmp.setup.filetype('gitcommit', {
-       sources = cmp.config.sources({
-         { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-       }, {
-         { name = 'buffer' },
-       })
-     })
-
-     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-     cmp.setup.cmdline(':', {
-       sources = cmp.config.sources({
-         { name = 'path' }
-       }, {
-         { name = 'cmdline' }
-       }),
-      --      formatting = {
-      --       format = function(_, vim_item)
-      --         vim_item.kind = cmdIcons[vim_item.kind] or "FOO"
-      --       return vim_item
-      --      end
-      -- }
-     })  
+    -- Allow the removal of any source by name
     function remove_source(source_name)
       local config = cmp.get_config()
       for i, source in ipairs(config.sources) do
@@ -153,6 +172,12 @@
       end
       cmp.setup(config)
     end
+
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+    )
   '';
   keymaps = [
     # disable cmp for buffer
@@ -166,5 +191,3 @@
     }
   ];
 }
-
-
