@@ -96,7 +96,7 @@
   extraConfigLua = /* lua */''
     luasnip = require("luasnip")
     local cmp = require'cmp'
-    debug_icon = false
+    DEBUG_ICON = false
     cmp.setup {
       formatting = {
         format = function(entry, vim_item)
@@ -151,7 +151,7 @@
             -- Replace the kind glyph with the custom icon
             icon = custom_menu_icon.cmdline
           end
-          if debug_icon then
+          if DEBUG_ICON then
             icon = string.format('[%s][%s]', entry.source.name, vim_item.kind)
           end
           vim_item.kind = string.format(' %s ', icon)
