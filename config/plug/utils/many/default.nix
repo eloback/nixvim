@@ -22,4 +22,7 @@
       variant = "zmk";
     };
   };
+  plugins.nvim-colorizer = {
+    enable = true;
+  };
 }
