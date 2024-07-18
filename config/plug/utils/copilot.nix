@@ -5,24 +5,19 @@ _: {
 
   keymaps = [
     {
-      key = "<leader>Ac";
+      mode = [ "x" "n" ];
+      key = "<leader>a";
+      action = "+copilot";
+    }
+    {
+      key = "<leader>ac";
       action = "<CMD>CopilotChatToggle<CR>";
       options.desc = "Toggle Copilot Chat Window";
     }
     {
-      key = "<leader>As";
+      key = "<leader>as";
       action = "<CMD>CopilotChatStop<CR>";
       options.desc = "Stop current Copilot output";
-    }
-    {
-      key = "<leader>At";
-      action = "<CMD>CopilotChatTests<CR>";
-      options.desc = "Add tests for my code";
-    }
-    {
-      mode = "x";
-      key = "<leader>a";
-      action = "+copilot";
     }
     {
       mode = "x";
@@ -49,6 +44,12 @@ _: {
       mode = "x";
       key = "<leader>ac";
       action = "<cmd>CopilotChatCommit<cr>";
+    }
+    {
+      mode = "x";
+      key = "<leader>at";
+      action = "<CMD>CopilotChatTests<CR>";
+      options.desc = "Add tests for my code";
     }
   ];
 }

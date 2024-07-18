@@ -40,11 +40,18 @@
     swap = {
       enable = true;
       swapNext = {
-        "<leader>a" = "@parameters.inner";
+        "<leader>ta" = "@parameters.inner";
       };
       swapPrevious = {
-        "<leader>A" = "@parameter.outer";
+        "<leader>tA" = "@parameter.outer";
       };
     };
   };
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>t";
+      action = "+treesitter";
+    }
+  ];
 }
