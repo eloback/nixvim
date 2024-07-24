@@ -113,6 +113,12 @@
           desc = "Buffer";
         };
       };
+      "<leader>?" = {
+        action = "current_buffer_fuzzy_find";
+        options = {
+          desc = "Buffer";
+        };
+      };
       "<leader>sc" = {
         action = "command_history";
         options = {
