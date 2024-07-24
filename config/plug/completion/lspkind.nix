@@ -63,6 +63,9 @@
               -- Replace the kind glyph with the custom icon
               icon = custom_menu_icon.cmdline
               menu = "command"
+            elseif entry.source.name == "vim-dadbod-completion" then
+              icon = ""
+              menu = "db"
             else
               local strings = vim.split(kind.kind, "%s", { trimempty = true })
               icon = strings[1] or "?"
