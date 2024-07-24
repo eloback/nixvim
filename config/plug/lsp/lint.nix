@@ -2,6 +2,7 @@
   plugins.lint = {
     enable = true;
     lintersByFt = {
+      python = [ "flake8" ];
       json = [ "biomejs" ];
       dockerfile = [ "hadolint" ];
       nix = [ "nix" ];
@@ -29,6 +30,9 @@
       };
       yamllint = {
         cmd = "${pkgs.yamllint}/bin/yamllint";
+      };
+      flake8 = {
+        cmd = "${pkgs.python3Packages.flake8}/bin/flake8";
       };
     };
 

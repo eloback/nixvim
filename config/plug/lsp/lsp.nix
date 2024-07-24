@@ -10,6 +10,7 @@
         nil-ls = { enable = true; };
         marksman = { enable = true; };
         tsserver = { enable = true; };
+        pyright = { enable = true; };
         yamlls = {
           enable = true;
         };
