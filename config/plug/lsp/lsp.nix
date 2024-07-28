@@ -38,32 +38,32 @@
           #   action = "type_definition";
           #   desc = "Type Definition";
           # };
-          K = {
-            action = "hover";
-            desc = "Hover";
-          };
-          "<leader>cw" = {
-            action = "workspace_symbol";
-            desc = "Workspace Symbol";
-          };
-          "<leader>cr" = {
-            action = "rename";
-            desc = "Rename";
-          };
+          # K = {
+          #   action = "hover";
+          #   desc = "Hover";
+          # };
+          # "<leader>cw" = {
+          #   action = "workspace_symbol";
+          #   desc = "Workspace Symbol";
+          # };
+          # "<leader>cr" = {
+          #   action = "rename";
+          #   desc = "Rename";
+          # };
         };
         diagnostic = {
-          "<leader>cd" = {
-            action = "open_float";
-            desc = "Line Diagnostics";
-          };
-          "[d" = {
-            action = "goto_next";
-            desc = "Next Diagnostic";
-          };
-          "]d" = {
-            action = "goto_prev";
-            desc = "Previous Diagnostic";
-          };
+          # "<leader>cd" = {
+          #   action = "open_float";
+          #   desc = "Line Diagnostics";
+          # };
+          # "[d" = {
+          #   action = "goto_next";
+          #   desc = "Next Diagnostic";
+          # };
+          # "]d" = {
+          #   action = "goto_prev";
+          #   desc = "Previous Diagnostic";
+          # };
         };
       };
     };
@@ -91,38 +91,4 @@
       border = _border
     }
   '';
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>gd";
-      action = "<cmd>Telescope lsp_definitions<cr>";
-      options = {
-        desc = "Goto Definition";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>gr";
-      action = "<cmd>Telescope lsp_references<cr>";
-      options = {
-        desc = "Goto References";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>gI";
-      action = "<cmd>Telescope lsp_implementations<cr>";
-      options = {
-        desc = "Goto Implementations";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>gT";
-      action = "<cmd>Telescope lsp_type_definitions<cr>";
-      options = {
-        desc = "Goto Type Definitions";
-      };
-    }
-  ];
 }

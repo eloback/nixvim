@@ -9,9 +9,10 @@
       codeAction = "💡"; # Can be any symbol you want 💡
     };
     hover = {
-      openCmd = "!floorp"; # Choose your browser
+      openCmd = "!qutebrowser"; # Choose your browser
       openLink = "gx";
     };
+    definition = { };
     diagnostic = {
       borderFollow = true;
       diagnosticOnlyCurrent = false;
@@ -31,7 +32,7 @@
       };
     };
     lightbulb = {
-      enable = false;
+      enable = true;
       sign = false;
       virtualText = true;
     };
