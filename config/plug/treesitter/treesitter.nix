@@ -9,6 +9,7 @@
     };
     folding = true;
     nixvimInjections = true;
+    gccPackage = null;
     nixGrammars = true;
   };
 }

@@ -10,6 +10,12 @@
   keymaps = [
     {
       mode = "n";
+      key = "<leader>nr";
+      action = "<CMD> Grapple reset <CR>";
+      options = { desc = "Grapple Toggle tag"; };
+    }
+    {
+      mode = "n";
       key = "<C-s>";
       action = "<CMD> Grapple toggle <CR>";
       options = { desc = "Grapple Toggle tag"; };

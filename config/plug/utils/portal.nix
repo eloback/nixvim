@@ -19,14 +19,12 @@
       action = "<CMD>Portal jumplist backward<CR>";
       options.desc = "Portal jumplist backward";
     }
-
     {
       mode = "n";
       key = "<C-i>";
       action = "<CMD>Portal jumplist forward<CR>";
       options.desc = "Portal jumplist forward";
     }
-
     {
       mode = "n";
       key = "<C-p>";
