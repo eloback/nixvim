@@ -5,7 +5,7 @@
       python = [ "flake8" ];
       json = [ "biomejs" ];
       dockerfile = [ "hadolint" ];
-      nix = [ "nix" ];
+      nix = [ "statix" "deadnix" ];
       javascript = [ "biomejs" ];
       typescript = [ "biomejs" ];
       lua = [ "luacheck" ];
@@ -16,8 +16,11 @@
       hadolint = {
         cmd = "${pkgs.hadolint}/bin/hadolint";
       };
-      nix = {
-        cmd = "${pkgs.nixpkgs-lint}/bin/nixpkgs-lint";
+      statix = {
+        cmd = "${pkgs.statix}/bin/statix";
+      };
+      deadnix = {
+        cmd = "${pkgs.deadnix}/bin/deadnix";
       };
       biomejs = {
         cmd = "${pkgs.biome}/bin/biome";

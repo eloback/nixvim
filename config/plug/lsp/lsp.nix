@@ -7,7 +7,24 @@
         biome = { enable = true; };
         html = { enable = true; };
         lua-ls = { enable = true; };
-        nil-ls = { enable = true; };
+        nil-ls = { enable = true; autostart = false; };
+        nixd = {
+          enable = true;
+          settings = {
+            nixpkgs = {
+              expr = "import <nixpkgs> { }";
+            };
+            # options.nixvim.expr = ''(builtins.getFlake "/path/to/flake").packages.${system}.neovimNixvim.options'';
+            options = {
+              nixos = {
+                expr = ''(builtins.getFlake "/home/eloback/nixos").nixosConfigurations.eloback.options'';
+              };
+              home_manager = {
+                expr = ''(builtins.getFlake "/home/eloback/nixos").homeConfigurations."vern@eloback".options'';
+              };
+            };
+          };
+        };
         marksman = { enable = true; };
         tsserver = { enable = true; };
         pyright = { enable = true; };
