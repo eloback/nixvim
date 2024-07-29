@@ -6,7 +6,7 @@
     };
     ui = {
       border = "rounded"; # One of none, single, double, rounded, solid, shadow
-      codeAction = "💡"; # Can be any symbol you want 💡
+      codeAction = " "; # Can be any symbol you want 💡
     };
     hover = {
       openCmd = "!qutebrowser"; # Choose your browser
@@ -15,7 +15,6 @@
     definition = { };
     diagnostic = {
       borderFollow = true;
-      diagnosticOnlyCurrent = false;
       showCodeAction = true;
     };
     symbolInWinbar = {
