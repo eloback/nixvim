@@ -1,6 +1,7 @@
 {
   plugins.rustaceanvim = {
     enable = true;
+    rustAnalyzerPackage = null;
   };
   plugins.crates-nvim = {
     enable = true;
