@@ -11,8 +11,9 @@
       typescript = [ [ "biome" "biome-check" ] ];
       lua = [ "stylua" ];
       nix = [ "nixpkgs_fmt" ];
-      # markdown = [ [ "biome" ] ];
+      # markdown = [ "mdformat" ];
       yaml = [ "yamllint" "yamlfmt" ];
+      "_" = [ "trim_whitespace" ];
     };
   };
   extraConfigLua = ''
@@ -39,5 +40,13 @@
       };
     }
   ];
-  extraPackages = with pkgs; [ prettierd stylua nixpkgs-fmt yamllint yamlfmt ];
+  extraPackages = with pkgs; [
+    # mdformat
+    # python312Packages.mdformat-gfm
+    # python312Packages.mdformat-tables
+    stylua
+    nixpkgs-fmt
+    yamllint
+    yamlfmt
+  ];
 }

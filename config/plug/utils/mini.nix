@@ -3,6 +3,7 @@
     enable = true;
     modules = {
       ai = { };
+      align = { };
       surround = {
         mappings = {
           add = "gsa";

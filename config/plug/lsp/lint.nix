@@ -8,6 +8,7 @@
       nix = [ "statix" "deadnix" ];
       javascript = [ "biomejs" ];
       typescript = [ "biomejs" ];
+      markdown = [ "markdownlint-cli2" ];
       lua = [ "luacheck" ];
       fish = [ "fish" ];
       yaml = [ "yamllint" ];
@@ -36,6 +37,9 @@
       };
       flake8 = {
         cmd = "${pkgs.python3Packages.flake8}/bin/flake8";
+      };
+      markdownlint-cli2 = {
+        cmd = "${pkgs.markdownlint-cli2}/bin/markdownlint-cli2";
       };
     };
 
