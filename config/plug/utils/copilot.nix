@@ -42,8 +42,9 @@ _: {
     }
     {
       mode = "x";
-      key = "<leader>ac";
+      key = "<leader>ag";
       action = "<cmd>CopilotChatCommit<cr>";
+      options.desc = "Write a commit for the code";
     }
     {
       mode = "x";
