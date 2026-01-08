@@ -22,8 +22,8 @@
           enable = true;
           settings =
             let
-              flake = ''(builtins.getFlake "github:elythh/flake)""'';
-              flakeNixvim = ''(builtins.getFlake "github:elythh/nixvim)""'';
+              flake = ''(builtins.getFlake "github:eloback/flake)""'';
+              flakeNixvim = ''(builtins.getFlake "github:eloback/nixvim)""'';
             in
             {
               nixpkgs = {

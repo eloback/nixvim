@@ -21,7 +21,8 @@
         nix = [
           "deadnix"
           "nix"
-        ] ++ lib.optionals (!config.plugins.lsp.servers.statix.enable) [ "statix" ];
+        ]
+        ++ lib.optionals (!config.plugins.lsp.servers.statix.enable) [ "statix" ];
         python = [ "pylint" ];
         sh = [ "shellcheck" ];
         terraform = [ "tflint" ];
@@ -40,9 +41,6 @@
         };
         golangcilint = {
           cmd = lib.getExe pkgs.golangci-lint;
-        };
-        jsonlint = {
-          cmd = lib.getExe pkgs.nodePackages.jsonlint;
         };
         luacheck = {
           cmd = lib.getExe pkgs.luaPackages.luacheck;
