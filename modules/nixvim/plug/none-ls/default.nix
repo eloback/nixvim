@@ -8,7 +8,6 @@
     };
     sources = {
       code_actions = {
-        # gitsigns.enable = true;
         statix.enable = true;
       };
       diagnostics = {
@@ -31,6 +30,7 @@
         prettier = {
           enable = true;
           disableTsServerFormatter = true;
+          package = pkgs.prettier;
           settings = ''
             {
               extra_args = { "--no-semi" },
